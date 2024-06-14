@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:backgroundTint="#CFFFD1"
+    app:strokeColor="#4CAF50"
+    app:strokeWidth="2dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:hint="@string/title"
+            android:textColor="@color/black"
+            android:textColorHint="#8F8F8F"
+            android:textSize="18sp"
+            tools:ignore="RelativeOverlap" />
+
+        <TextView
+            android:id="@+id/tvCreatedAt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvTitle"
+            android:layout_margin="8dp"
+            android:hint="@string/created_at"
+            android:textColor="@color/black"
+            android:textColorHint="#8F8F8F"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tvZarurlik"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvCreatedAt"
+            android:layout_margin="8dp"
+            android:hint="@string/updated_at"
+            android:textColor="@color/black"
+            android:textColorHint="#8F8F8F"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tvBajarildi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvZarurlik"
+            android:layout_margin="8dp"
+            android:hint="@string/bajarildi"
+            android:textColor="@color/black"
+            android:textColorHint="#8F8F8F"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tvSana"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvBajarildi"
+            android:layout_margin="8dp"
+            android:hint="@string/sana"
+            android:textColor="@color/black"
+            android:textColorHint="#8F8F8F"
+            android:textSize="18sp" />
+
+        <ImageView
+            android:id="@+id/btnMore"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentEnd="true"
+            android:importantForAccessibility="no"
+            android:padding="5dp"
+            android:layout_margin="10dp"
+            android:src="@drawable/ic_more" />
+    </RelativeLayout>
+</com.google.android.material.card.MaterialCardView>
