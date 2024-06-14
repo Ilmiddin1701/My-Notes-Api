@@ -85,4 +85,12 @@
         android:text="@string/register"
         android:textColor="#D9DDCC"
         android:textSize="22sp" />
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/progress_bar"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        />
 </RelativeLayout>
