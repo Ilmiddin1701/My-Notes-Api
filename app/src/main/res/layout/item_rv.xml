@@ -46,27 +46,7 @@
             android:textColorHint="#8F8F8F"
             android:textSize="18sp" />
 
-        <TextView
-            android:id="@+id/tvBajarildi"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tvZarurlik"
-            android:layout_margin="8dp"
-            android:hint="@string/bajarildi"
-            android:textColor="@color/black"
-            android:textColorHint="#8F8F8F"
-            android:textSize="18sp" />
 
-        <TextView
-            android:id="@+id/tvSana"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tvBajarildi"
-            android:layout_margin="8dp"
-            android:hint="@string/sana"
-            android:textColor="@color/black"
-            android:textColorHint="#8F8F8F"
-            android:textSize="18sp" />
 
         <ImageView
             android:id="@+id/btnMore"
