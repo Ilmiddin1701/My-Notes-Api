@@ -7,8 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
-import androidx.navigation.fragment.findNavController
-import com.ilmiddin1701.mynotes.R
 import com.ilmiddin1701.mynotes.databinding.FragmentRegisterBinding
 import com.ilmiddin1701.mynotes.models.PostRequestUser
 import com.ilmiddin1701.mynotes.retrofit.ApiClient
@@ -32,7 +30,7 @@ class RegisterFragment : Fragment() {
                     edtUsername.text.toString()
                 )
                 ApiClient.getApiService().registerUser(postRequestUser)
-                    .enqueue(object :Callback<String>{
+                    .enqueue(object : Callback<String> {
                         override fun onResponse(p0: Call<String>, p1: Response<String>) {
                             progressBar.visibility = View.GONE
                             btnSignIn.isEnabled = true
