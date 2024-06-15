@@ -46,16 +46,15 @@
             android:textColorHint="#8F8F8F"
             android:textSize="18sp" />
 
-
-
         <ImageView
             android:id="@+id/btnMore"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="10dp"
             android:importantForAccessibility="no"
             android:padding="5dp"
-            android:layout_margin="10dp"
             android:src="@drawable/ic_more" />
     </RelativeLayout>
 </com.google.android.material.card.MaterialCardView>
