@@ -46,7 +46,8 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/action_bar1" />
+            app:layout_constraintTop_toBottomOf="@+id/action_bar1"
+            tools:listitem="@layout/item_rv" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/btnAdd"

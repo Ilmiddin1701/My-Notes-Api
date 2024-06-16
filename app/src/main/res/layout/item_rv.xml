@@ -4,10 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="10dp"
-    android:backgroundTint="#CFFFD1"
-    app:strokeColor="#4CAF50"
-    app:strokeWidth="2dp">
+    android:layout_marginTop="4dp"
+    android:backgroundTint="#262F38"
+    app:cardCornerRadius="0dp"
+    app:strokeColor="@android:color/transparent"
+    app:cardElevation="0dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -18,9 +19,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:hint="@string/title"
-            android:textColor="@color/black"
-            android:textColorHint="#8F8F8F"
+            android:text="@string/title"
+            android:textColor="@color/white"
             android:textSize="18sp"
             tools:ignore="RelativeOverlap" />
 
@@ -30,9 +30,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/tvTitle"
             android:layout_margin="8dp"
-            android:hint="@string/created_at"
-            android:textColor="@color/black"
-            android:textColorHint="#8F8F8F"
+            android:text="@string/created_at"
+            android:textColor="@color/white"
             android:textSize="18sp" />
 
         <TextView
@@ -41,9 +40,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/tvCreatedAt"
             android:layout_margin="8dp"
-            android:hint="@string/updated_at"
-            android:textColor="@color/black"
-            android:textColorHint="#8F8F8F"
+            android:text="@string/updated_at"
+            android:textColor="@color/white"
             android:textSize="18sp" />
 
         <ImageView
