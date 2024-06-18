@@ -87,10 +87,10 @@
         android:textSize="22sp" />
 
     <ProgressBar
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/progress_bar"
-        android:layout_centerInParent="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:visibility="gone"
-        />
+        android:background="#66000000"
+        android:padding="170dp" />
 </RelativeLayout>

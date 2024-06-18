@@ -27,22 +27,6 @@
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/edtEmail"
-            android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:layout_marginHorizontal="25dp"
-            android:layout_marginBottom="6dp"
-            android:background="@drawable/edt_style"
-            android:fontFamily="@font/my_font"
-            android:gravity="center"
-            android:hint="@string/email"
-            android:importantForAutofill="no"
-            android:inputType="textEmailAddress"
-            android:textColor="@color/white"
-            android:textColorHint="#D9DDCC"
-            android:textSize="22sp" />
-
-        <EditText
             android:id="@+id/edtUsername"
             android:layout_width="match_parent"
             android:layout_height="55dp"
@@ -75,7 +59,7 @@
             android:textSize="22sp" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnSignIn"
+            android:id="@+id/btnSignUp"
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:layout_marginHorizontal="25dp"
@@ -94,8 +78,7 @@
         android:id="@+id/progress_bar"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="100dp"
-        android:visibility="gone"
-        />
-
+        android:background="#66000000"
+        android:padding="170dp"
+        android:visibility="gone" />
 </FrameLayout>
