@@ -60,14 +60,14 @@
             android:textSize="22sp" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnLogIn"
+            android:id="@+id/btnSignIn"
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:layout_marginHorizontal="25dp"
             android:layout_marginTop="6dp"
             android:backgroundTint="#2FAD64"
             android:fontFamily="@font/my_font"
-            android:text="@string/log_in"
+            android:text="@string/sign_in"
             android:textColor="@color/white"
             android:textSize="22sp"
             app:cornerRadius="50dp" />
