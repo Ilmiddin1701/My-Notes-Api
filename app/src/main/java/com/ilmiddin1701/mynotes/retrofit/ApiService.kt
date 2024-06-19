@@ -28,9 +28,9 @@ interface ApiService {
 
 
     @POST("main/reja-qo'shish/")
-    fun postRequestNote(@Body postRequestNote: PostRequestNote): Call<String>
+    fun postRequestNote(@Header("Authorization") token: String, @Body postRequestNote: PostRequestNote): Call<String>
 
     @GET("main/rejalar/")
-    fun getResponseNotes(): Call<List<GetNoteResponse>>
+    fun getResponseNotes(@Header("Authorization") token: String): Call<List<GetNoteResponse>>
 
 }

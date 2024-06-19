@@ -14,6 +14,7 @@ import com.ilmiddin1701.mynotes.R
 import com.ilmiddin1701.mynotes.databinding.FragmentAddBinding
 import com.ilmiddin1701.mynotes.models.PostRequestNote
 import com.ilmiddin1701.mynotes.retrofit.ApiClient
+import com.ilmiddin1701.mynotes.utils.MySharedPreference
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -27,6 +28,7 @@ class AddFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        MySharedPreference.init(binding.root.context)
         binding.apply {
             edtFocus.setOnClickListener { showKeyboard(edtBatafsil) }
             btnSave.setOnClickListener {
@@ -36,7 +38,7 @@ class AddFragment : Fragment() {
                         edtBatafsil.text.toString(),
                         edtMuddat.text.toString()
                     )
-                    ApiClient.getApiService().postRequestNote(postRequestNote)
+                    ApiClient.getApiService().postRequestNote( "Bearer ${MySharedPreference.token}",postRequestNote)
                         .enqueue(object : Callback<String> {
                             override fun onResponse(p0: Call<String>, p1: Response<String>) {
                                 if (p1.isSuccessful) {

@@ -41,7 +41,10 @@ class HomeFragment : Fragment(), RvAdapter.RvAction {
             tvTitle.text = "Connecting..."
             ApiClient.getApiService().getUserDetails("Bearer ${MySharedPreference.token}")
                 .enqueue(object : Callback<GetResponseUser> {
-                    override fun onResponse(p0: Call<GetResponseUser>, p1: Response<GetResponseUser>) {
+                    override fun onResponse(
+                        p0: Call<GetResponseUser>,
+                        p1: Response<GetResponseUser>
+                    ) {
                         if (p1.isSuccessful) {
                             val user = p1.body()
                             myNav.findViewById<TextView>(R.id.tvUsername)
@@ -49,6 +52,7 @@ class HomeFragment : Fragment(), RvAdapter.RvAction {
                             onResume()
                         }
                     }
+
                     override fun onFailure(p0: Call<GetResponseUser>, p1: Throwable) {
                         Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show()
                     }
@@ -63,28 +67,16 @@ class HomeFragment : Fragment(), RvAdapter.RvAction {
                     R.id.menu_delete -> {
                         ApiClient.getApiService().deleteUser("Bearer ${MySharedPreference.token}")
                             .enqueue(object : Callback<Any> {
-                                override fun onResponse(p0: Call<Any>, p1: Response<Any>) {
-                                    if (p1.isSuccessful) {
-                                        mySharedPreference.token = "empty"
-                                        MySharedPreference.token = mySharedPreference.token
-                                        findNavController().popBackStack()
-                                        findNavController().navigate(R.id.signInFragment)
-                                    } else {
-                                        val dialog = AlertDialog.Builder(requireContext())
-                                        dialog.setTitle("Error")
-                                        dialog.setMessage(p1.errorBody()?.string())
-                                        dialog.show()
-                                    }
-                                }
+                                override fun onResponse(p0: Call<Any>, p1: Response<Any>) {}
                                 override fun onFailure(p0: Call<Any>, p1: Throwable) {
-                                    val dialog = AlertDialog.Builder(requireContext())
-                                    dialog.setTitle("Error")
-                                    dialog.setMessage(p1.message)
-                                    dialog.show()
-                                    Toast.makeText(context, "Error"+p1.message, Toast.LENGTH_SHORT).show()
+                                    mySharedPreference.token = "empty"
+                                    MySharedPreference.token = mySharedPreference.token
+                                    findNavController().popBackStack()
+                                    findNavController().navigate(R.id.signInFragment)
                                 }
                             })
                     }
+
                     R.id.menu_logout -> {
                         mySharedPreference.token = "empty"
                         MySharedPreference.token = mySharedPreference.token
@@ -100,17 +92,24 @@ class HomeFragment : Fragment(), RvAdapter.RvAction {
 
     override fun onResume() {
         super.onResume()
-        ApiClient.getApiService().getResponseNotes()
+        ApiClient.getApiService().getResponseNotes("Bearer ${MySharedPreference.token}")
             .enqueue(object : Callback<List<GetNoteResponse>> {
-                override fun onResponse(p0: Call<List<GetNoteResponse>>, p1: Response<List<GetNoteResponse>>) {
+                override fun onResponse(
+                    p0: Call<List<GetNoteResponse>>,
+                    p1: Response<List<GetNoteResponse>>
+                ) {
                     if (p1.isSuccessful) {
                         binding.apply {
                             tvTitle.text = "My Notes"
-                            rvAdapter = RvAdapter(this@HomeFragment, p1.body() as ArrayList<GetNoteResponse>)
+                            rvAdapter = RvAdapter(
+                                this@HomeFragment,
+                                p1.body() as ArrayList<GetNoteResponse>
+                            )
                             rv.adapter = rvAdapter
                         }
                     }
                 }
+
                 override fun onFailure(p0: Call<List<GetNoteResponse>>, p1: Throwable) {
                     Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show()
                 }
