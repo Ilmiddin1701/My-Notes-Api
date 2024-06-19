@@ -24,13 +24,15 @@ class SignInFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        MySharedPreference.init(binding.root.context)
+         MySharedPreference.init(binding.root.context)
         if (MySharedPreference.token != "null") {
             findNavController().popBackStack()
             findNavController().navigate(R.id.homeFragment)
+            return binding.root
         }
         binding.apply {
             btnRegister.setOnClickListener {
+                findNavController().popBackStack()
                 findNavController().navigate(R.id.registerFragment)
             }
             btnSignIn.setOnClickListener {
@@ -51,10 +53,10 @@ class SignInFragment : Fragment() {
                                     MySharedPreference.token = accessToken!!
                                     findNavController().popBackStack()
                                     findNavController().navigate(R.id.homeFragment)
-                                    Toast.makeText(context, p1.message(), Toast.LENGTH_SHORT).show()
+                                    Toast.makeText(context, "Successful", Toast.LENGTH_SHORT).show()
                                 } else {
                                     val dialog = AlertDialog.Builder(requireContext())
-                                    dialog.setTitle("Xatolik")
+                                    dialog.setTitle("Error")
                                     dialog.setMessage(p1.errorBody()?.string())
                                     dialog.show()
                                 }
