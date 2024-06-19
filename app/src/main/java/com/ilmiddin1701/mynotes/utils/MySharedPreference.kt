@@ -20,10 +20,8 @@ object MySharedPreference {
     }
 
     var token: String
-        get() = preferences.getString("keyToken", "null")!!
+        get() = preferences.getString("keyToken", "empty")!!
         set(value) = preferences.edit {
-            if (value != null) {
-                it.putString("keyToken", value)
-            }
+            it.putString("keyToken", value)
         }
 }

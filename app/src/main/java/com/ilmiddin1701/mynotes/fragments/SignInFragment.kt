@@ -25,7 +25,7 @@ class SignInFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
          MySharedPreference.init(binding.root.context)
-        if (MySharedPreference.token != "null") {
+        if (MySharedPreference.token != "empty") {
             findNavController().popBackStack()
             findNavController().navigate(R.id.homeFragment)
             return binding.root

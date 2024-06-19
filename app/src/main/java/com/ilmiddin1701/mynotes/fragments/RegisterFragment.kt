@@ -39,8 +39,6 @@ class RegisterFragment : Fragment() {
                     ApiClient.getApiService().registerUser(postRequestUser)
                         .enqueue(object : Callback<String>{
                             override fun onResponse(p0: Call<String>, p1: Response<String>) {
-                                progressBar.visibility = View.GONE
-                                btnSignUp.isEnabled = true
                                 if (p1.isSuccessful) {
                                     ApiClient.getApiService().signInUser(postRequestUser)
                                         .enqueue(object : Callback<PostResponseToken>{
@@ -67,6 +65,8 @@ class RegisterFragment : Fragment() {
                                             }
                                         })
                                 } else {
+                                    progressBar.visibility = View.GONE
+                                    btnSignUp.isEnabled = true
                                     val dialog = androidx.appcompat.app.AlertDialog.Builder(requireContext())
                                     dialog.setTitle("Xatolik")
                                     dialog.setMessage(p1.errorBody()?.string())
