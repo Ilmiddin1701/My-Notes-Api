@@ -18,7 +18,7 @@
         android:layout_marginBottom="6dp"
         android:background="@drawable/edt_style"
         android:fontFamily="@font/my_font"
-        android:hint="Sarlavha"
+        android:hint="@string/sarlavha"
         android:importantForAutofill="no"
         android:inputType="text"
         android:paddingStart="15dp"
@@ -34,7 +34,7 @@
         android:layout_marginHorizontal="15dp"
         android:layout_marginVertical="6dp"
         android:layout_weight="1"
-        android:background="@drawable/edt_style">
+        android:background="@drawable/edt_style_1">
 
         <ScrollView
             android:id="@+id/scrollView"
@@ -48,29 +48,59 @@
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
                 android:fontFamily="@font/my_font"
-                android:hint="Batafsil"
+                android:hint="@string/batafsil"
                 android:textColor="@color/white"
                 android:textColorHint="#D9DDCC"
                 android:textSize="22sp" />
         </ScrollView>
     </FrameLayout>
 
-    <EditText
-        android:id="@+id/edtMuddat"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:layout_marginHorizontal="15dp"
-        android:layout_marginVertical="6dp"
-        android:background="@drawable/edt_style"
-        android:fontFamily="@font/my_font"
-        android:hint="Muddat"
-        android:importantForAutofill="no"
-        android:inputType="text"
-        android:paddingStart="15dp"
-        android:paddingEnd="15dp"
-        android:textColor="@color/white"
-        android:textColorHint="#D9DDCC"
-        android:textSize="22sp" />
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/edtMuddat"
+            android:layout_width="0dp"
+            android:layout_height="55dp"
+            android:layout_marginVertical="6dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/edt_style"
+            android:fontFamily="@font/my_font"
+            android:gravity="center_vertical"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
+            android:text="@string/muddat"
+            android:textColor="@color/white"
+            android:textSize="22sp" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_marginVertical="6dp"
+            android:layout_marginEnd="15dp"
+            android:backgroundTint="@android:color/transparent"
+            app:strokeColor="@color/white"
+            app:strokeWidth="1dp"
+            android:clickable="true"
+            app:cardCornerRadius="55dp"
+            android:contentDescription="@string/calendar"
+            android:focusable="true"
+            android:foreground="?selectableItemBackground">
+
+            <ImageView
+                android:id="@+id/btnCalendar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:padding="12dp"
+                android:src="@drawable/ic_calendar"
+                tools:ignore="ContentDescription,UnusedAttribute" />
+        </com.google.android.material.card.MaterialCardView>
+    </LinearLayout>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnSave"
@@ -79,9 +109,9 @@
         android:layout_marginHorizontal="15dp"
         android:layout_marginTop="6dp"
         android:layout_marginBottom="10dp"
-        android:backgroundTint="#2FAD64"
+        android:backgroundTint="#6BA7D2"
         android:fontFamily="@font/my_font"
-        android:text="Saqlash"
+        android:text="@string/saqlash"
         android:textColor="#D6FFEA"
         android:textSize="22sp"
         app:cornerRadius="50dp" />

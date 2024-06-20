@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">My Notes</string>
+    <string name="app_name">Todo App</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
     <string name="log_in">Log In</string>
@@ -13,10 +13,13 @@
     <string name="add_button">Add button</string>
     <string name="btn_menu">Menu button</string>
     <string name="profile">Profile</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title">Title</string>
     <string name="created_at">Created at</string>
     <string name="updated_at">Updated at</string>
     <string name="sign_in">Sign in</string>
+    <string name="muddat">Muddat</string>
+    <string name="sarlavha">Sarlavha</string>
+    <string name="batafsil">Batafsil</string>
+    <string name="calendar">Calendar</string>
+    <string name="saqlash">Saqlash</string>
 </resources>

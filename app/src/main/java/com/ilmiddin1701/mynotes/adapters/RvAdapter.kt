@@ -13,8 +13,11 @@ class RvAdapter(var rvAction: RvAction, var list: ArrayList<GetNoteResponse>): A
     inner class Vh(private var itemRv: ItemRvBinding): RecyclerView.ViewHolder(itemRv.root){
         fun onBind(getNoteResponse: GetNoteResponse, position: Int) {
             itemRv.tvSarlavha.text = getNoteResponse.sarlavha
-            itemRv.tvBajarildi.text = getNoteResponse.bajarildi.toString()
-            itemRv.tvCreatedAt.text = getNoteResponse.created_at
+            if (getNoteResponse.bajarildi) {
+                itemRv.tvBajarildi.text = "Bajarilgan"
+            } else {
+                itemRv.tvBajarildi.text = "Bajarilmagan"
+            }
         }
     }
 

@@ -100,7 +100,7 @@ class HomeFragment : Fragment(), RvAdapter.RvAction {
                 ) {
                     if (p1.isSuccessful) {
                         binding.apply {
-                            tvTitle.text = "My Notes"
+                            tvTitle.text = "Todo App"
                             rvAdapter = RvAdapter(
                                 this@HomeFragment,
                                 p1.body() as ArrayList<GetNoteResponse>
