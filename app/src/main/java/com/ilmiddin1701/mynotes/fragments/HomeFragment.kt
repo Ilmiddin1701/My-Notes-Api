@@ -118,11 +118,11 @@ class HomeFragment : Fragment(), RvAdapter.RvAction {
             })
     }
 
-    override fun moreClick(getNoteResponse: GetNoteResponse, position: Int, imageView: ImageView) {
+    override fun deleteClick(getNoteResponse: GetNoteResponse, position: Int) {
 
     }
 
     override fun itemClick(getNoteResponse: GetNoteResponse, position: Int) {
-
+        findNavController().navigate(R.id.aboutFragment)
     }
 }

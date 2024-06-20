@@ -15,6 +15,12 @@ class RvAdapter(var rvAction: RvAction, var list: ArrayList<GetNoteResponse>): A
         @SuppressLint("SetTextI18n")
         fun onBind(getNoteResponse: GetNoteResponse, position: Int) {
             itemRv.tvSarlavha.text = getNoteResponse.sarlavha
+            itemRv.btnDelete.setOnClickListener {
+                rvAction.deleteClick(getNoteResponse, position)
+            }
+            itemRv.root.setOnClickListener {
+                rvAction.itemClick(getNoteResponse, position)
+            }
             if (getNoteResponse.bajarildi) {
                 itemRv.tvBajarildi.text = "Bajarilgan"
             } else {
@@ -34,7 +40,7 @@ class RvAdapter(var rvAction: RvAction, var list: ArrayList<GetNoteResponse>): A
     }
 
     interface RvAction {
-        fun moreClick(getNoteResponse: GetNoteResponse, position: Int, imageView: ImageView)
+        fun deleteClick(getNoteResponse: GetNoteResponse, position: Int)
         fun itemClick(getNoteResponse: GetNoteResponse, position: Int)
     }
 }
