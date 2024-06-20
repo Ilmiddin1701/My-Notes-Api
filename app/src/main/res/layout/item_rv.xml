@@ -22,7 +22,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="12dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
+            android:layout_marginBottom="6dp"
             android:text="@string/title"
             android:textColor="@color/white"
             android:textSize="20sp"
@@ -34,7 +34,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/tvSarlavha"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="6dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="12dp"
             android:textColor="@color/white"
@@ -42,13 +42,13 @@
 
         <ImageView
             android:id="@+id/btnDelete"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:layout_alignBottom="@id/tvBajarildi"
             android:layout_alignParentEnd="true"
             android:layout_marginEnd="10dp"
             android:importantForAccessibility="no"
-            android:padding="5dp"
+            android:padding="7dp"
             android:src="@drawable/ic_delete" />
     </RelativeLayout>
 </com.google.android.material.card.MaterialCardView>
