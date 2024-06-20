@@ -1,6 +1,5 @@
 package com.ilmiddin1701.mynotes.fragments
 
-import android.app.AlertDialog
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater

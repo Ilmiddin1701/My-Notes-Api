@@ -3,14 +3,13 @@ package com.ilmiddin1701.mynotes.fragments
 import android.app.AlertDialog
 import android.content.Context.INPUT_METHOD_SERVICE
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.ilmiddin1701.mynotes.R
 import com.ilmiddin1701.mynotes.databinding.FragmentAddBinding
 import com.ilmiddin1701.mynotes.models.PostRequestNote
 import com.ilmiddin1701.mynotes.retrofit.ApiClient
@@ -18,9 +17,6 @@ import com.ilmiddin1701.mynotes.utils.MySharedPreference
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.text.SimpleDateFormat
-import java.util.Date
-import java.util.Locale
 
 class AddFragment : Fragment() {
     private val binding by lazy { FragmentAddBinding.inflate(layoutInflater) }

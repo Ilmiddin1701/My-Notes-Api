@@ -1,5 +1,6 @@
 package com.ilmiddin1701.mynotes.adapters
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ImageView
@@ -11,6 +12,7 @@ import com.ilmiddin1701.mynotes.models.GetNoteResponse
 class RvAdapter(var rvAction: RvAction, var list: ArrayList<GetNoteResponse>): Adapter<RvAdapter.Vh>() {
 
     inner class Vh(private var itemRv: ItemRvBinding): RecyclerView.ViewHolder(itemRv.root){
+        @SuppressLint("SetTextI18n")
         fun onBind(getNoteResponse: GetNoteResponse, position: Int) {
             itemRv.tvSarlavha.text = getNoteResponse.sarlavha
             if (getNoteResponse.bajarildi) {
