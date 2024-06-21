@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.core.os.bundleOf
 import androidx.core.view.GravityCompat
 import androidx.navigation.fragment.findNavController
 import com.ilmiddin1701.mynotes.R
@@ -66,16 +67,26 @@ class HomeFragment : Fragment(), RvAdapter.RvAction {
             myNav.setNavigationItemSelectedListener {
                 when (it.itemId) {
                     R.id.menu_delete -> {
-                        ApiClient.getApiService().deleteUser("Bearer ${MySharedPreference.token}")
-                            .enqueue(object : Callback<Any> {
-                                override fun onResponse(p0: Call<Any>, p1: Response<Any>) {}
-                                override fun onFailure(p0: Call<Any>, p1: Throwable) {
-                                    mySharedPreference.token = "empty"
-                                    MySharedPreference.token = mySharedPreference.token
-                                    findNavController().popBackStack()
-                                    findNavController().navigate(R.id.signInFragment)
-                                }
-                            })
+                        val dialog = AlertDialog.Builder(requireContext()).create()
+                        dialog.setTitle("Ushbu hisob o'chirilsinmi?")
+                        dialog.setMessage("Ushbu hisobning o'chirilishi uning ichidagi barcha ma'lumotlarning o'chib ketishiga olib kelishi bo'lishi mumkin.")
+                        drawerLayout.closeDrawer(GravityCompat.END)
+                        dialog.setButton(AlertDialog.BUTTON_POSITIVE, "O'chirish") { _, _ ->
+                            ApiClient.getApiService().deleteUser("Bearer ${MySharedPreference.token}")
+                                .enqueue(object : Callback<Any> {
+                                    override fun onResponse(p0: Call<Any>, p1: Response<Any>) {}
+                                    override fun onFailure(p0: Call<Any>, p1: Throwable) {
+                                        mySharedPreference.token = "empty"
+                                        MySharedPreference.token = mySharedPreference.token
+                                        findNavController().popBackStack()
+                                        findNavController().navigate(R.id.signInFragment)
+                                    }
+                                })
+                        }
+                        dialog.setButton(AlertDialog.BUTTON_NEGATIVE, "Bekor qilish") { _, _ ->
+                            dialog.cancel()
+                        }
+                        dialog.show()
                     }
 
                     R.id.menu_logout -> {
@@ -140,6 +151,6 @@ class HomeFragment : Fragment(), RvAdapter.RvAction {
     }
 
     override fun itemClick(getNoteResponse: GetNoteResponse, position: Int) {
-        findNavController().navigate(R.id.aboutFragment)
+        findNavController().navigate(R.id.aboutFragment, bundleOf("keyInformation" to getNoteResponse))
     }
 }

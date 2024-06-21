@@ -1,5 +1,6 @@
 package com.ilmiddin1701.mynotes.fragments
 
+import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.app.DatePickerDialog
 import android.content.Context.INPUT_METHOD_SERVICE
@@ -73,22 +74,15 @@ class AddFragment : Fragment() {
         imm.showSoftInput(view, InputMethodManager.SHOW_IMPLICIT)
     }
 
+    @SuppressLint("SetTextI18n", "DefaultLocale")
     private fun showCalendar() {
         binding.apply {
             val datePicker = DatePickerDialog(requireContext())
             datePicker.setOnCancelListener {
-                tvMuddat.text = null
+                tvMuddat.text = "Muddat"
             }
             datePicker.setOnDateSetListener { _, year, month, dayOfMonth ->
-                if (month < 10 && dayOfMonth < 10) {
-                    tvMuddat.text = "$year-0$month-0$dayOfMonth"
-                } else if (month > 10 && dayOfMonth < 10) {
-                    tvMuddat.text = "$year-$month-0$dayOfMonth"
-                } else if (month > 10 && dayOfMonth > 10) {
-                    tvMuddat.text = "$year-$month-$dayOfMonth"
-                } else if (month < 10 && dayOfMonth > 10) {
-                    tvMuddat.text = "$year-0$month-$dayOfMonth"
-                }
+                tvMuddat.text = String.format("%04d-%02d-%02d", year, month + 1, dayOfMonth)
             }
             datePicker.show()
         }

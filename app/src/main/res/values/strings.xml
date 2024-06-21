@@ -26,4 +26,6 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="tahrirlash">Tahrirlash</string>
     <string name="bajarildi">Bajarildi</string>
+    <string name="btnback">btnBack</string>
+    <string name="bajarilganmi">Bajarilganmi</string>
 </resources>
