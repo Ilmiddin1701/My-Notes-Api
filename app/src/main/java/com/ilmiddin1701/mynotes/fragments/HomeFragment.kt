@@ -6,9 +6,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.core.view.GravityCompat
 import androidx.navigation.fragment.findNavController
 import com.ilmiddin1701.mynotes.R
@@ -118,8 +118,25 @@ class HomeFragment : Fragment(), RvAdapter.RvAction {
             })
     }
 
+    @SuppressLint("SetTextI18n")
     override fun deleteClick(getNoteResponse: GetNoteResponse, position: Int) {
-
+        val dialog = AlertDialog.Builder(requireContext()).create()
+        dialog.setTitle("Ushbu reja o'chirilsinmi?")
+        dialog.setMessage("Ushbu rejaning o'chirilishi uning ichidagi barcha ma'lumotlarning o'chib ketishiga olib kelishi bo'lishi mumkin.")
+        dialog.setButton(AlertDialog.BUTTON_POSITIVE, "O'chirish") { _, _ ->
+            binding.tvTitle.text = "Connecting..."
+            ApiClient.getApiService().deleteNote("Bearer ${MySharedPreference.token}", getNoteResponse.id)
+                .enqueue(object : Callback<Any> {
+                    override fun onResponse(p0: Call<Any>, p1: Response<Any>) {}
+                    override fun onFailure(p0: Call<Any>, p1: Throwable) {
+                        onResume()
+                    }
+                })
+        }
+        dialog.setButton(AlertDialog.BUTTON_NEGATIVE, "Bekor qilish") { _, _ ->
+            dialog.cancel()
+        }
+        dialog.show()
     }
 
     override fun itemClick(getNoteResponse: GetNoteResponse, position: Int) {

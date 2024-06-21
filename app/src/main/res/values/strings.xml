@@ -24,4 +24,6 @@
     <string name="saqlash">Saqlash</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="tahrirlash">Tahrirlash</string>
+    <string name="bajarildi">Bajarildi</string>
 </resources>

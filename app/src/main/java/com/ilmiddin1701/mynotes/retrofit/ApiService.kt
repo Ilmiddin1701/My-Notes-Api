@@ -11,6 +11,7 @@ import retrofit2.http.DELETE
 import retrofit2.http.GET
 import retrofit2.http.Header
 import retrofit2.http.POST
+import retrofit2.http.Path
 
 interface ApiService {
 
@@ -32,5 +33,8 @@ interface ApiService {
 
     @GET("main/rejalar/")
     fun getResponseNotes(@Header("Authorization") token: String): Call<List<GetNoteResponse>>
+
+    @DELETE("main/rejalar/{id}/o'chirish/")
+    fun deleteNote(@Header("Authorization") token: String, @Path("id") id: Int): Call<Any>
 
 }
