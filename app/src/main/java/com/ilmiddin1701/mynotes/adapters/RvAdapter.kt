@@ -15,6 +15,7 @@ class RvAdapter(var rvAction: RvAction, var list: ArrayList<GetNoteResponse>): A
         @SuppressLint("SetTextI18n")
         fun onBind(getNoteResponse: GetNoteResponse, position: Int) {
             itemRv.tvSarlavha.text = getNoteResponse.sarlavha
+            itemRv.tvMuddat.text = "Muddat: " + getNoteResponse.muddat
             itemRv.btnDelete.setOnClickListener {
                 rvAction.deleteClick(getNoteResponse, position)
             }

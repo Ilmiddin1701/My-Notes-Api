@@ -39,7 +39,8 @@
                 android:layout_marginStart="10dp"
                 android:text="@string/my_notes"
                 android:textColor="@color/white"
-                android:textSize="25sp" />
+                android:textSize="27sp"
+                android:fontFamily="@font/my_font" />
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView

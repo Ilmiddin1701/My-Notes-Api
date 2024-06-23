@@ -23,6 +23,9 @@ class EditFragment : Fragment() {
             edtBatafsil.setText(getNoteResponse.batafsil)
             tvMuddat.text = getNoteResponse.muddat
             mySwitch.isChecked = getNoteResponse.bajarildi
+            btnSave.setOnClickListener {
+
+            }
         }
         return binding.root
     }

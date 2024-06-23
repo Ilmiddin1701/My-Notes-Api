@@ -23,9 +23,9 @@
             android:layout_marginTop="12dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="6dp"
-            android:text="@string/title"
+            android:fontFamily="@font/my_font"
             android:textColor="@color/white"
-            android:textSize="20sp"
+            android:textSize="22sp"
             tools:ignore="RelativeOverlap" />
 
         <TextView
@@ -36,15 +36,29 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="6dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginBottom="12dp"
+            android:layout_marginBottom="6dp"
+            android:fontFamily="@font/my_font"
             android:textColor="@color/white"
-            android:textSize="20sp" />
+            android:textSize="22sp" />
+
+        <TextView
+            android:id="@+id/tvMuddat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvBajarildi"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="12dp"
+            android:fontFamily="@font/my_font"
+            android:textColor="@color/white"
+            android:textSize="22sp" />
 
         <ImageView
             android:id="@+id/btnDelete"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:layout_alignBottom="@id/tvBajarildi"
+            android:layout_alignBottom="@id/tvMuddat"
             android:layout_alignParentEnd="true"
             android:layout_marginEnd="10dp"
             android:importantForAccessibility="no"

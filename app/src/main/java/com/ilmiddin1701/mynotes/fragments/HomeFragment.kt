@@ -40,7 +40,7 @@ class HomeFragment : Fragment(), RvAdapter.RvAction {
                 findNavController().navigate(R.id.signInFragment)
                 return binding.root
             }
-            tvTitle.text = "Connecting..."
+            tvTitle.text = "Ulanmoqda..."
             ApiClient.getApiService().getUserDetails("Bearer ${MySharedPreference.token}")
                 .enqueue(object : Callback<GetResponseUser> {
                     override fun onResponse(
@@ -70,7 +70,6 @@ class HomeFragment : Fragment(), RvAdapter.RvAction {
                         val dialog = AlertDialog.Builder(requireContext()).create()
                         dialog.setTitle("Ushbu hisob o'chirilsinmi?")
                         dialog.setMessage("Ushbu hisobning o'chirilishi uning ichidagi barcha ma'lumotlarning o'chib ketishiga olib kelishi bo'lishi mumkin.")
-                        drawerLayout.closeDrawer(GravityCompat.END)
                         dialog.setButton(AlertDialog.BUTTON_POSITIVE, "O'chirish") { _, _ ->
                             ApiClient.getApiService().deleteUser("Bearer ${MySharedPreference.token}")
                                 .enqueue(object : Callback<Any> {
@@ -135,7 +134,7 @@ class HomeFragment : Fragment(), RvAdapter.RvAction {
         dialog.setTitle("Ushbu reja o'chirilsinmi?")
         dialog.setMessage("Ushbu rejaning o'chirilishi uning ichidagi barcha ma'lumotlarning o'chib ketishiga olib kelishi bo'lishi mumkin.")
         dialog.setButton(AlertDialog.BUTTON_POSITIVE, "O'chirish") { _, _ ->
-            binding.tvTitle.text = "Connecting..."
+            binding.tvTitle.text = "Ulanmoqda..."
             ApiClient.getApiService().deleteNote("Bearer ${MySharedPreference.token}", getNoteResponse.id)
                 .enqueue(object : Callback<Any> {
                     override fun onResponse(p0: Call<Any>, p1: Response<Any>) {}

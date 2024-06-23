@@ -4,8 +4,8 @@
     <string name="password">Password</string>
     <string name="log_in">Log In</string>
     <string name="register">Register</string>
-    <string name="delete">Delete</string>
-    <string name="log_out">Log out</string>
+    <string name="delete">O\'chirish</string>
+    <string name="log_out">Chiqish</string>
     <string name="sign_up">Sign up</string>
     <string name="email">Email address</string>
     <string name="welcome">Welcome</string>
