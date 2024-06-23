@@ -9,6 +9,14 @@
     android:orientation="vertical"
     tools:context=".fragments.AddFragment">
 
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:indeterminateTint="#6BA7D2"
+        android:visibility="gone" />
+
     <EditText
         android:id="@+id/edtSarlavha"
         android:layout_width="match_parent"

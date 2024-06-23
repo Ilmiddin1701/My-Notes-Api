@@ -41,6 +41,15 @@
                 android:textColor="@color/white"
                 android:textSize="27sp"
                 android:fontFamily="@font/my_font" />
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="10dp"
+                android:indeterminateTint="#6BA7D2"
+                android:visibility="gone" />
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView

@@ -40,6 +40,7 @@ class HomeFragment : Fragment(), RvAdapter.RvAction {
                 findNavController().navigate(R.id.signInFragment)
                 return binding.root
             }
+            progressBar.visibility = View.VISIBLE
             tvTitle.text = "Ulanmoqda..."
             ApiClient.getApiService().getUserDetails("Bearer ${MySharedPreference.token}")
                 .enqueue(object : Callback<GetResponseUser> {
@@ -112,6 +113,7 @@ class HomeFragment : Fragment(), RvAdapter.RvAction {
                 ) {
                     if (p1.isSuccessful) {
                         binding.apply {
+                            progressBar.visibility = View.GONE
                             tvTitle.text = "Todo App"
                             rvAdapter = RvAdapter(
                                 this@HomeFragment,
@@ -134,6 +136,7 @@ class HomeFragment : Fragment(), RvAdapter.RvAction {
         dialog.setTitle("Ushbu reja o'chirilsinmi?")
         dialog.setMessage("Ushbu rejaning o'chirilishi uning ichidagi barcha ma'lumotlarning o'chib ketishiga olib kelishi bo'lishi mumkin.")
         dialog.setButton(AlertDialog.BUTTON_POSITIVE, "O'chirish") { _, _ ->
+            binding.progressBar.visibility = View.VISIBLE
             binding.tvTitle.text = "Ulanmoqda..."
             ApiClient.getApiService().deleteNote("Bearer ${MySharedPreference.token}", getNoteResponse.id)
                 .enqueue(object : Callback<Any> {
@@ -150,6 +153,6 @@ class HomeFragment : Fragment(), RvAdapter.RvAction {
     }
 
     override fun itemClick(getNoteResponse: GetNoteResponse, position: Int) {
-        findNavController().navigate(R.id.aboutFragment, bundleOf("keyInformation" to getNoteResponse))
+        findNavController().navigate(R.id.aboutFragment, bundleOf("keyId" to getNoteResponse.id))
     }
 }

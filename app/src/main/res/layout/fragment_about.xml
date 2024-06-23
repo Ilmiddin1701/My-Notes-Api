@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#1E2931"
-    android:orientation="vertical"
     tools:context=".fragments.AboutFragment">
 
     <RelativeLayout
+        android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginTop="15dp">
@@ -40,7 +40,6 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:fontFamily="@font/my_font"
-            android:text="@string/bajarildi"
             android:textColor="@color/white"
             android:textSize="20sp"
             tools:ignore="RelativeOverlap" />
@@ -51,7 +50,8 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_toEndOf="@id/tvBajarildi"
-            android:textSize="12sp" />
+            android:textSize="12sp"
+            tools:ignore="RelativeOverlap" />
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/btnEdit"
@@ -76,30 +76,45 @@
         </com.google.android.material.card.MaterialCardView>
     </RelativeLayout>
 
-    <TextView
-        android:id="@+id/tvTitle"
+    <ProgressBar
+        android:id="@+id/progressBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="10dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginBottom="20dp"
-        android:fontFamily="@font/my_font"
-        android:text="@string/title"
-        android:textColor="@color/white"
-        android:textSize="45sp"
-        android:textStyle="bold" />
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/relativeLayout"
+        android:indeterminateTint="#6BA7D2"
+        android:visibility="gone" />
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp">
+        android:layout_height="match_parent"
+        android:layout_below="@id/relativeLayout"
+        android:orientation="vertical">
 
         <TextView
-            android:id="@+id/tvAbout"
-            android:layout_width="match_parent"
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="20dp"
             android:fontFamily="@font/my_font"
             android:textColor="@color/white"
-            android:textSize="20sp" />
-    </ScrollView>
-</LinearLayout>
+            android:textSize="45sp"
+            android:textStyle="bold" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp">
+
+            <TextView
+                android:id="@+id/tvAbout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/my_font"
+                android:textColor="@color/white"
+                android:textSize="25sp" />
+        </ScrollView>
+    </LinearLayout>
+</RelativeLayout>

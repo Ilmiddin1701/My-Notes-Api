@@ -35,6 +35,7 @@ class AddFragment : Fragment() {
 
             btnSave.setOnClickListener {
                 if (edtSarlavha.text.isNotEmpty() && edtBatafsil.text.isNotEmpty() && tvMuddat.text.isNotEmpty()) {
+                    progressBar.visibility = View.VISIBLE
                     val postRequestNote = PostRequestNote(
                         edtSarlavha.text.toString(),
                         edtBatafsil.text.toString(),
@@ -44,6 +45,7 @@ class AddFragment : Fragment() {
                         .postRequestNote("Bearer ${MySharedPreference.token}", postRequestNote)
                         .enqueue(object : Callback<String> {
                             override fun onResponse(p0: Call<String>, p1: Response<String>) {
+                                progressBar.visibility = View.GONE
                                 if (p1.isSuccessful) {
                                     findNavController().popBackStack()
                                     Toast.makeText(context, "Saqlandi", Toast.LENGTH_SHORT).show()
@@ -74,7 +76,7 @@ class AddFragment : Fragment() {
         imm.showSoftInput(view, InputMethodManager.SHOW_IMPLICIT)
     }
 
-    @SuppressLint("SetTextI18n", "DefaultLocale")
+    @SuppressLint("NewApi", "DefaultLocale", "SetTextI18n")
     private fun showCalendar() {
         binding.apply {
             val datePicker = DatePickerDialog(requireContext())
